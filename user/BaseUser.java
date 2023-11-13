@@ -1,6 +1,7 @@
 package user;
 
 import java.util.Date;
+import java.util.UUID;
 
 // BaseUser is an abstract class that represents a user of the system.
 abstract class BaseUser {
@@ -13,14 +14,16 @@ abstract class BaseUser {
     private Date dateCreated;
 
     // Constructor
-    public BaseUser(String id, String firstName, String lastName, String middleName, String email, String authToken, Date dateCreated) {
-        this.id = id;
+    public BaseUser(String firstName, String lastName, String middleName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.email = email;
-        this.authToken = authToken;
-        this.dateCreated = dateCreated;
+
+        // generate unique id and auth token and get current date
+        this.authToken = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString();
+        this.dateCreated = new Date();
     }
 
     public String getId() {
@@ -66,5 +69,9 @@ abstract class BaseUser {
     public Date getDateCreated() {
         return dateCreated;
     }
+
+    // Abstract login method to be implemented by child classes
+
+    public abstract boolean login(String email);
 
 }
