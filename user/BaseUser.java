@@ -3,6 +3,8 @@ package user;
 import java.util.Date;
 import java.util.UUID;
 
+import subscription.BaseSubscription;
+
 // BaseUser is an abstract class that represents a user of the system.
 abstract class BaseUser {
     private String id;
@@ -12,6 +14,7 @@ abstract class BaseUser {
     private String email;
     private String authToken;
     private Date dateCreated;
+    private BaseSubscription currentSubscription;
 
     // Constructor
     public BaseUser(String firstName, String lastName, String middleName, String email) {

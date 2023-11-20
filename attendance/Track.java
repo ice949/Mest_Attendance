@@ -18,4 +18,16 @@ public class Track {
     public void markAttendance() {
         this.dateChecked = new Date();
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public Date getDateChecked() {
+        return dateChecked;
+    }
+
+    public Eit getUser() {
+        return user;
+    }
 }
